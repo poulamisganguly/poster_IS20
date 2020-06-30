@@ -21,7 +21,8 @@ affiliation:
   - num: 2
     address: The Mathematical Institute, Leiden University, Leiden, The Netherlands
   - num: 3
-    address: Centre for Medical Image Computing, University College London, London, United Kingdom <br> Arxiv preprint - <u><a href="https://arxiv.org/abs/2002.00710" style="color:white">https://arxiv.org/abs/2002.00710</a></u> </br>
+    address: Centre for Medical Image Computing, University College London, London, United Kingdom <br> Arxiv preprint - <u><a href="https://arxiv.org/abs/2002.00710" style="color:white">https://arxiv.org/abs/2002.00710</a></u> </br> <br> Live poster - <u><a href="https://poulamisganguly.github.io/poster_IS20/" style="color:white">https://poulamisganguly.github.io/poster_IS20/</a></u> </br> 
+
 
 
 font_family: 'PT Sans'
