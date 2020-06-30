@@ -27,8 +27,8 @@ main_fontfamily: 'PT Sans'
 primary_colour: '#9a0200'
 column_numbers: 3
 sectitle_textsize: "60pt"
-#logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
-#logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
+logoright_name: "./figures/logoright.png"
+logoleft_name: "./figures/logoleft.png"
 output: 
   posterdown::posterdown_html:
     self_contained: false
@@ -63,7 +63,7 @@ To recover $\mu$, we model interatomic interactions explicitly by the __Lennard-
 $$
 \begin{aligned}
     & \underset{\boldsymbol{x}\in \mathcal{C}, w \in \{0,1\}^n}{\text{minimise}}
-    & & \Big \| \sum_{i=1}^n w_i \psi(\boldsymbol{x}_i) - y \Big \|^2_2 + \alpha V_{\text{tot}}(\vec{x}), \\
+    & & \Big \| \sum_{i=1}^n w_i \mathcal{R}(G \ast \delta_{\boldsymbol{x}_i}) - y \Big \|^2_2 + \alpha V_{\text{tot}}(\boldsymbol{x}), \\
     \end{aligned}
 $$
 where $V_{\text{tot}}$ is the total potential energy and $\alpha$ is a regularisation parameter.
@@ -80,7 +80,7 @@ We used a modified version of the __alternating descent conditional gradient (AD
 <small>Reconstructions of common lattice defects from 2 projections.  For simulated annealing, ADCG ($\alpha=0$) and ADCG with energy ($\alpha>0$) reconstructions, atoms are coloured according to their Euclidean distance from the ground truth. The ground truth positions  are  marked  with  red  crosses.</small>
 
 ### Effect of adding energy
-<img src="figures/energy.png" width="1400">
+<img src="figures/energy_smaller.png" width="1300">
 <small>Tuning $\alpha$ amounts to moving from data-optimal to energy-optimal configurations. Increasing $\alpha$ beyond an optimal value (grey line in plot) leads to a large increase in the data discrepancy due to addition of more atoms.</small>
 
 # Learned Post-processing

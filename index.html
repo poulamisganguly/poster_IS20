@@ -302,6 +302,7 @@ font-size: 20pt;
 <div class="title_container">
 <!-- Left Logo  -->
 <div class="logo_left">
+<img src=./figures/logoleft.png style="width: 80%">
 </div>
 <!-- Poster Title -->
 <div class= "poster_title">
@@ -311,6 +312,7 @@ font-size: 20pt;
 </div>
 <!-- Right Logo  -->
 <div class="logo_right">
+<img src=./figures/logoright.png style="width: 80%">
 </div>
 </div>
 
@@ -337,7 +339,7 @@ font-size: 20pt;
 <span class="math display">\[
 \begin{aligned}
     &amp; \underset{\boldsymbol{x}\in \mathcal{C}, w \in \{0,1\}^n}{\text{minimise}}
-    &amp; &amp; \Big \| \sum_{i=1}^n w_i \psi(\boldsymbol{x}_i) - y \Big \|^2_2 + \alpha V_{\text{tot}}(\vec{x}), \\
+    &amp; &amp; \Big \| \sum_{i=1}^n w_i \mathcal{R}(G \ast \delta_{\boldsymbol{x}_i}) - y \Big \|^2_2 + \alpha V_{\text{tot}}(\boldsymbol{x}), \\
     \end{aligned}
 \]</span>
 where <span class="math inline">\(V_{\text{tot}}\)</span> is the total potential energy and <span class="math inline">\(\alpha\)</span> is a regularisation parameter.</p>
@@ -353,7 +355,7 @@ where <span class="math inline">\(V_{\text{tot}}\)</span> is the total potential
 </div>
 <div id="effect-of-adding-energy" class="section level3">
 <h3>Effect of adding energy</h3>
-<p><img src="figures/energy.png" width="1400">
+<p><img src="figures/energy_smaller.png" width="1300">
 <small>Tuning <span class="math inline">\(\alpha\)</span> amounts to moving from data-optimal to energy-optimal configurations. Increasing <span class="math inline">\(\alpha\)</span> beyond an optimal value (grey line in plot) leads to a large increase in the data discrepancy due to addition of more atoms.</small></p>
 </div>
 </div>
