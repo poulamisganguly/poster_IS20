@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=PT Sans' rel='stylesheet'>
+
+
+
+<title>Atomic Super-Resolution Tomography</title>
+
+<script src="poster_IS20_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+
+<style>
+@page {
+size: 45in 38in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 45px;
+width: 45in;
+height: 38in;
+padding: 0;
+text-align: justify;
+font-family: PT Sans;
+}
+.poster_wrap {
+width: 45in;
+height: 38in;
+padding: 0cm;
+}
+.title_container {
+width: 100%;
+height: 15%;
+overflow: hidden;
+background-color: #9a0200;
+border: 0 solid #9a0200
+;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #9a0200;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #9a0200;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #FFFFFF;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: PT Sans;
+}
+/* unvisited link */
+a:link {
+color: #008080;
+text-decoration: none;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #008080;
+text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+color: #008080;
+text-decoration: none;
+}
+
+/* selected link */
+a:active {
+color: #008080;
+text-decoration: none;
+}
+.poster_body {
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: #9a0200;
+-moz-column-rule-color: #9a0200;
+column-rule-color: #9a0200;
+column-gap: 1em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 75pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: 45in;
+height: calc(100% - 17%);
+padding-top: calc(38in * 0.01);
+padding-bottom: calc(38in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #ffffff;
+font-size: 50pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #FFFFFF;
+font-size: 35pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 0;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #FFFFFF;
+font-size: 65pt;
+border: 2mm solid #9a0200;
+background-color: #9a0200;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #000000;
+font-size: 40pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r, pre.sourceCode.python {
+background-color: #ffffff20;
+border: solid #008080 1mm;
+border-radius: 0.5em;
+padding: 4mm;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+div.sourceCode {
+background-color: transparent;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+}
+code.sourceCode.r, code.sourceCode.python {
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #008080;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+.caption {
+font-size: 20pt;
+}
+.table caption {
+font-size: 20pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #00808024;
+color: #9a0200;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+color: #000000
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title"><strong>Atomic Super-Resolution Tomography</strong></h1>
+<h3 id="author"><strong>Poulami Somanya Ganguly</strong><sup>1, 2, <a class="orcid" href="https://orcid.org/0000-0003-1672-7194"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Felix Lucka<sup>1, 3, <a class="orcid" href="https://orcid.org/0000-0002-8763-5177"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Hermen Jan Hupkes<sup>2, <a class="orcid" href="https://orcid.org/0000-0003-1726-5323"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup>, Joost Batenburg<sup>1, 2, <a class="orcid" href="https://orcid.org/0000-0002-3154-8576"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3>
+<h5 id="affiliation"><sup>1</sup> Centrum Wiskunde &amp; Informatica, Amsterdam, The Netherlands; <sup>2</sup> The Mathematical Institute, Leiden University, Leiden, The Netherlands; <sup>3</sup> Centre for Medical Image Computing, University College London, London, United Kingdom</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Electron tomography is a technique for resolving the interior of nanomaterials from a series of projection images. <strong>Discrete tomography</strong> approaches have been shown to reconstruct nanocrystals of increasing complexity. A key limitation of these methods is that they assume atoms to lie on a coarse spatial grid whereas, in practice, <strong>lattice defects</strong> in nanocrystals cause atoms to deviate from regular positions.</p>
+<p>We present two alternative <strong>grid-free</strong> reconstruction approaches: 1) a super-resolution approach that allows for continuous deviations of atom locations, and 2) a <strong>deep learning</strong> approach to identify atom locations from blurred reconstructions</p>
+</div>
+<div id="summary-of-main-results" class="section level1">
+<h1>Summary of Main Results</h1>
+<ol style="list-style-type: decimal">
+<li><p>Allowing for continuous deviations of atom locations <strong>aids reconstruction</strong> of test lattices with data from <strong>very few tilt angles</strong> (2 or 3).</p></li>
+<li><p>Incorporating a physical model for the <strong>potential energy of the atomic configuration</strong> corrects for <strong>poor initialisations</strong>.</p></li>
+<li><p><strong>Learned post processing</strong> from reconstructed images performs poorly for limited data.</p></li>
+</ol>
+</div>
+<div id="mathematical-formulation" class="section level1">
+<h1>Mathematical Formulation</h1>
+<p>An atomic configuration is characterised by a positive measure <span class="math inline">\(\mu\)</span> on a bounded subset <span class="math inline">\(X\)</span> of <span class="math inline">\(\mathbb{R}^d\)</span>, which represents the electron density. The Radon transform of the measure, <span class="math inline">\(\mathcal{R} \mu\)</span>, provides a simplified mathematical model of the image formation process. The corresponding inverse problem is to recover <span class="math inline">\(\mu\)</span> from noisy observations given by <span class="math inline">\(y = \mathcal{R} \mu + \varepsilon\)</span>.</p>
+<p>We consider atomic configurations to be <strong>sparse measures</strong> of the form: <span class="math inline">\(\mu = \sum_{i=1}^n w_i (G \ast \delta_{\boldsymbol{x}_i})\)</span>, where <span class="math inline">\(G\)</span> denotes a Gaussian that quantifies thermal motion of atoms and the weights <span class="math inline">\(w_i\)</span> are used to differentiate between atom types.</p>
+<p>To recover <span class="math inline">\(\mu\)</span>, we model interatomic interactions explicitly by the <strong>Lennard-Jones</strong> pair potential and solve the following optimisation problem:
+<span class="math display">\[
+\begin{aligned}
+    &amp; \underset{\boldsymbol{x}\in \mathcal{C}, w \in \{0,1\}^n}{\text{minimise}}
+    &amp; &amp; \Big \| \sum_{i=1}^n w_i \psi(\boldsymbol{x}_i) - y \Big \|^2_2 + \alpha V_{\text{tot}}(\vec{x}), \\
+    \end{aligned}
+\]</span>
+where <span class="math inline">\(V_{\text{tot}}\)</span> is the total potential energy and <span class="math inline">\(\alpha\)</span> is a regularisation parameter.</p>
+</div>
+<div id="results" class="section level1">
+<h1>Results</h1>
+<p><img align="right" src="figures/animation.gif" width="600"></p>
+<p>We used a modified version of the <strong>alternating descent conditional gradient (ADCG)</strong> algorithm to obtain atom locations. At each iteration, the algorithm 1) <strong>adds a new atom</strong> on a coarse grid and 2) <strong>locally moves</strong> all atoms. An animated reconstruction run is shown on the right.</p>
+<div id="comparison-of-reconstructions" class="section level3">
+<h3>Comparison of reconstructions</h3>
+<p><img align="bottom" src="figures/recos1_smaller.png" width="1200">
+<small>Reconstructions of common lattice defects from 2 projections. For simulated annealing, ADCG (<span class="math inline">\(\alpha=0\)</span>) and ADCG with energy (<span class="math inline">\(\alpha&gt;0\)</span>) reconstructions, atoms are coloured according to their Euclidean distance from the ground truth. The ground truth positions are marked with red crosses.</small></p>
+</div>
+<div id="effect-of-adding-energy" class="section level3">
+<h3>Effect of adding energy</h3>
+<p><img src="figures/energy.png" width="1400">
+<small>Tuning <span class="math inline">\(\alpha\)</span> amounts to moving from data-optimal to energy-optimal configurations. From the plots of potential energy and data discrepancy, an optimal value of <span class="math inline">\(\alpha\)</span> (indicated by the grey line) is selected. Increasing <span class="math inline">\(\alpha\)</span> beyond this optimal value leads to a large increase in the data discrepancy due to addition of more atoms.</small></p>
+</div>
+</div>
+<div id="learned-post-processing" class="section level1">
+<h1>Learned Post-processing</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="center">10 angles</th>
+<th align="center">8 angles</th>
+<th align="center">5 angles</th>
+<th align="center">2 angles</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="figures/10_angles.png" width="320"></td>
+<td align="center"><img src="figures/8_angles.png" width="320"></td>
+<td align="center"><img src="figures/5_angles.png" width="320"></td>
+<td align="center"><img src="figures/2_angles.png" width="320"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="outlook" class="section level1">
+<h1>Outlook</h1>
+<ul>
+<li><p>Incorporate appropriate features of global optimisation into ADCG</p></li>
+<li><p>Use more realistic potential energy models</p></li>
+<li><p>Explore deep learning based iterative schemes to scale up to real electron tomography data</p></li>
+</ul>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+</div>
+<div id="acknowledgements" class="section level1">
+<h1>Acknowledgements</h1>
+<p>This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement no. 765604.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+var script = document.createElement("script");
+script.type = "text/javascript";
+var src = "true";
+if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+if (location.protocol !== "file:" && /^https?:/.test(src))
+src = src.replace(/^https?:/, '');
+script.src = src;
+document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+
+
+</body>
+</html>
