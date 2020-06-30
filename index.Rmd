@@ -26,6 +26,12 @@ font_family: 'PT Sans'
 main_fontfamily: 'PT Sans'
 primary_colour: '#9a0200'
 column_numbers: 3
+poster_height: "36in"
+poster_width: "64in"
+title_textsize: "90pt"
+author_textsize: "65pt"
+body_textsize: "50px"
+column_margins: "1.0in"
 #logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 #logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
@@ -42,7 +48,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Electron tomography is a technique for resolving the interior of nanomaterials from a series of projection images. __Discrete tomography__ approaches have been shown to reconstruct nanocrystals of increasing complexity. A key limitation of these methods is that they assume atoms to lie on a coarse spatial grid whereas, in practice, __lattice defects__ in nanocrystals cause atoms to deviate from regular positions.
 
-We present two alternative __grid-free__ reconstruction approaches: 1) a super-resolution approach that allows for continuous deviations of atom locations, and 2) a __deep learning__ approach to identify atom locations from blurred reconstructions
+We present two alternative __grid-free__ reconstruction methods:  
+
+1. a __super-resolution__ approach that allows for continuous deviations of atom locations 
+2. a __deep learning__ approach to identify atom locations from blurred reconstructions
 
 # Summary of Main Results
 
@@ -67,19 +76,28 @@ $$
 $$
 where $V_{\text{tot}}$ is the total potential energy and $\alpha$ is a regularisation parameter.
 
+&nbsp;
+
 # Results
 
 <img align="right" src="figures/animation.gif" width="600">
 
 
-We used a modified version of the __alternating descent conditional gradient (ADCG)__ algorithm to obtain atom locations. At each iteration, the algorithm 1) __adds a new atom__ on a coarse grid and 2) __locally moves__ all atoms. An animated reconstruction run is shown on the right.
+We used a modified version of the __alternating descent conditional gradient (ADCG)__ algorithm to obtain atom locations. At each iteration, the algorithm   
+1. __adds a new atom__ on a coarse grid, and 
+2. __locally moves__ all atoms.   
+
+An animated reconstruction run is shown on the right.
+
 
 ### Comparison of reconstructions
-<img align="bottom" src="figures/recos1_smaller.png" width="1200">
+<img align="center" src="figures/recos1_smaller.png" width="1200">
+
 <small>Reconstructions of common lattice defects from 2 projections.  For simulated annealing, ADCG ($\alpha=0$) and ADCG with energy ($\alpha>0$) reconstructions, atoms are coloured according to their Euclidean distance from the ground truth. The ground truth positions  are  marked  with  red  crosses.</small>
 
 ### Effect of adding energy
 <img src="figures/energy.png" width="1400">
+
 <small>Tuning $\alpha$ amounts to moving from data-optimal to energy-optimal configurations. From the plots of potential energy and data discrepancy, an optimal value of $\alpha$ (indicated by the grey line) is selected. Increasing $\alpha$ beyond this optimal value leads to a large increase in the data discrepancy due to addition of more atoms.</small>
 
 # Learned Post-processing
