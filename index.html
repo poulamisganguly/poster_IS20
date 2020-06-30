@@ -29,22 +29,22 @@ Google fonts api stuff
 
 <style>
 @page {
-size: 64in 36in;
+size: 45in 38in;
 margin: 0;
 padding: 0;
 }
 body {
 margin: 0;
-font-size: 50px;
-width: 64in;
-height: 36in;
+font-size: 45px;
+width: 45in;
+height: 38in;
 padding: 0;
 text-align: justify;
 font-family: PT Sans;
 }
 .poster_wrap {
-width: 64in;
-height: 36in;
+width: 45in;
+height: 38in;
 padding: 0cm;
 }
 .title_container {
@@ -136,21 +136,21 @@ color: #000000
 background-color: #ffffff;
 }
 .poster_title h1 {
-font-size: 90pt;
+font-size: 75pt;
 margin: 0;
 border: 0;
 font-weight: normal;
 }
 .poster_body_wrap{
-width: 64in;
+width: 45in;
 height: calc(100% - 17%);
-padding-top: calc(36in * 0.01);
-padding-bottom: calc(36in * 0.01);
+padding-top: calc(38in * 0.01);
+padding-bottom: calc(38in * 0.01);
 background-color: #ffffff;
 }
 .poster_title h3 {
 color: #ffffff;
-font-size: 65pt;
+font-size: 50pt;
 margin: 0;
 border: 0;
 font-weight: normal;
@@ -319,11 +319,7 @@ font-size: 20pt;
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>Electron tomography is a technique for resolving the interior of nanomaterials from a series of projection images. <strong>Discrete tomography</strong> approaches have been shown to reconstruct nanocrystals of increasing complexity. A key limitation of these methods is that they assume atoms to lie on a coarse spatial grid whereas, in practice, <strong>lattice defects</strong> in nanocrystals cause atoms to deviate from regular positions.</p>
-<p>We present two alternative <strong>grid-free</strong> reconstruction methods:</p>
-<ol style="list-style-type: decimal">
-<li>a <strong>super-resolution</strong> approach that allows for continuous deviations of atom locations</li>
-<li>a <strong>deep learning</strong> approach to identify atom locations from blurred reconstructions</li>
-</ol>
+<p>We present two alternative <strong>grid-free</strong> reconstruction approaches: 1) a super-resolution approach that allows for continuous deviations of atom locations, and 2) a <strong>deep learning</strong> approach to identify atom locations from blurred reconstructions</p>
 </div>
 <div id="summary-of-main-results" class="section level1">
 <h1>Summary of Main Results</h1>
@@ -345,24 +341,20 @@ font-size: 20pt;
     \end{aligned}
 \]</span>
 where <span class="math inline">\(V_{\text{tot}}\)</span> is the total potential energy and <span class="math inline">\(\alpha\)</span> is a regularisation parameter.</p>
-<p> </p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
 <p><img align="right" src="figures/animation.gif" width="600"></p>
-<p>We used a modified version of the <strong>alternating descent conditional gradient (ADCG)</strong> algorithm to obtain atom locations. At each iteration, the algorithm<br />
-1. <strong>adds a new atom</strong> on a coarse grid, and
-2. <strong>locally moves</strong> all atoms.</p>
-<p>An animated reconstruction run is shown on the right.</p>
+<p>We used a modified version of the <strong>alternating descent conditional gradient (ADCG)</strong> algorithm to obtain atom locations. At each iteration, the algorithm 1) <strong>adds a new atom</strong> on a coarse grid and 2) <strong>locally moves</strong> all atoms. An animated reconstruction run is shown on the right.</p>
 <div id="comparison-of-reconstructions" class="section level3">
 <h3>Comparison of reconstructions</h3>
-<p><img align="center" src="figures/recos1_smaller.png" width="1200"></p>
-<p><small>Reconstructions of common lattice defects from 2 projections. For simulated annealing, ADCG (<span class="math inline">\(\alpha=0\)</span>) and ADCG with energy (<span class="math inline">\(\alpha&gt;0\)</span>) reconstructions, atoms are coloured according to their Euclidean distance from the ground truth. The ground truth positions are marked with red crosses.</small></p>
+<p><img align="bottom" src="figures/recos1_smaller.png" width="1200">
+<small>Reconstructions of common lattice defects from 2 projections. For simulated annealing, ADCG (<span class="math inline">\(\alpha=0\)</span>) and ADCG with energy (<span class="math inline">\(\alpha&gt;0\)</span>) reconstructions, atoms are coloured according to their Euclidean distance from the ground truth. The ground truth positions are marked with red crosses.</small></p>
 </div>
 <div id="effect-of-adding-energy" class="section level3">
 <h3>Effect of adding energy</h3>
-<p><img src="figures/energy.png" width="1400"></p>
-<p><small>Tuning <span class="math inline">\(\alpha\)</span> amounts to moving from data-optimal to energy-optimal configurations. From the plots of potential energy and data discrepancy, an optimal value of <span class="math inline">\(\alpha\)</span> (indicated by the grey line) is selected. Increasing <span class="math inline">\(\alpha\)</span> beyond this optimal value leads to a large increase in the data discrepancy due to addition of more atoms.</small></p>
+<p><img src="figures/energy.png" width="1400">
+<small>Tuning <span class="math inline">\(\alpha\)</span> amounts to moving from data-optimal to energy-optimal configurations. From the plots of potential energy and data discrepancy, an optimal value of <span class="math inline">\(\alpha\)</span> (indicated by the grey line) is selected. Increasing <span class="math inline">\(\alpha\)</span> beyond this optimal value leads to a large increase in the data discrepancy due to addition of more atoms.</small></p>
 </div>
 </div>
 <div id="learned-post-processing" class="section level1">
