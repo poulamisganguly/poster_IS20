@@ -26,6 +26,7 @@ font_family: 'PT Sans'
 main_fontfamily: 'PT Sans'
 primary_colour: '#9a0200'
 column_numbers: 3
+sectitle_textsize: "60pt"
 #logoright_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 #logoleft_name: https&#58;//raw.githubusercontent.com/brentthorne/posterdown/master/images/betterhexlogo.png
 output: 
@@ -72,7 +73,7 @@ where $V_{\text{tot}}$ is the total potential energy and $\alpha$ is a regularis
 <img align="right" src="figures/animation.gif" width="600">
 
 
-We used a modified version of the __alternating descent conditional gradient (ADCG)__ algorithm to obtain atom locations. At each iteration, the algorithm 1) __adds a new atom__ on a coarse grid and 2) __locally moves__ all atoms. An animated reconstruction run is shown on the right.
+We used a modified version of the __alternating descent conditional gradient (ADCG)__ [@boyd2017alternating] algorithm to obtain atom locations. At each iteration, the algorithm 1) __adds a new atom__ on a coarse grid and 2) __locally moves__ all atoms. An animated reconstruction run is shown on the right.
 
 ### Comparison of reconstructions
 <img align="bottom" src="figures/recos1_smaller.png" width="1200">
@@ -80,12 +81,14 @@ We used a modified version of the __alternating descent conditional gradient (AD
 
 ### Effect of adding energy
 <img src="figures/energy.png" width="1400">
-<small>Tuning $\alpha$ amounts to moving from data-optimal to energy-optimal configurations. From the plots of potential energy and data discrepancy, an optimal value of $\alpha$ (indicated by the grey line) is selected. Increasing $\alpha$ beyond this optimal value leads to a large increase in the data discrepancy due to addition of more atoms.</small>
+<small>Tuning $\alpha$ amounts to moving from data-optimal to energy-optimal configurations. Increasing $\alpha$ beyond an optimal value (grey line in plot) leads to a large increase in the data discrepancy due to addition of more atoms.</small>
 
 # Learned Post-processing
-10 angles                  |  8 angles                |5 angles                  |  2 angles
-:-------------------------:|:-------------------------:|:------------------------:|:--------------:|
-<img src="figures/10_angles.png" width="320">  |  <img src="figures/8_angles.png" width="320">  | <img src="figures/5_angles.png" width="320">  | <img src="figures/2_angles.png" width="320"> |
+
+<img align="left" src="figures/animation_deeploco.gif" width="500">
+
+We trained a deep neural network [@boyd2018deeploco] to identify atom locations from blurred SIRT reconstructions.  
+This approach although more scalable than ADCG did not perform well for cases where data from only very few angles were available. SIRT reconstructions with identified atoms (red crosses) are shown on the left.
 
 # Outlook
 
@@ -93,13 +96,10 @@ We used a modified version of the __alternating descent conditional gradient (AD
 
 * Use more realistic potential energy models
 
-* Explore deep learning based iterative schemes to scale up to real electron tomography data
+* Explore deep learning based iterative schemes
 
-```{r, include=FALSE}
-knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
-```
+# Acknowledgements
+<small>This project received funding from the EU's Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement no. 765604.</small>
 
 # References
 
-# Acknowledgements
-This project has received funding from the European Union's Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement no. 765604.

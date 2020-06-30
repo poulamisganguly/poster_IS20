@@ -176,7 +176,7 @@ margin-bottom: 0;
 .poster_body h1 {
 text-align: center;
 color: #FFFFFF;
-font-size: 65pt;
+font-size: 60pt;
 border: 2mm solid #9a0200;
 background-color: #9a0200;
 border-radius: 4mm 0mm;
@@ -345,7 +345,7 @@ where <span class="math inline">\(V_{\text{tot}}\)</span> is the total potential
 <div id="results" class="section level1">
 <h1>Results</h1>
 <p><img align="right" src="figures/animation.gif" width="600"></p>
-<p>We used a modified version of the <strong>alternating descent conditional gradient (ADCG)</strong> algorithm to obtain atom locations. At each iteration, the algorithm 1) <strong>adds a new atom</strong> on a coarse grid and 2) <strong>locally moves</strong> all atoms. An animated reconstruction run is shown on the right.</p>
+<p>We used a modified version of the <strong>alternating descent conditional gradient (ADCG)</strong> <span class="citation">(Boyd, Schiebinger, and Recht 2017)</span> algorithm to obtain atom locations. At each iteration, the algorithm 1) <strong>adds a new atom</strong> on a coarse grid and 2) <strong>locally moves</strong> all atoms. An animated reconstruction run is shown on the right.</p>
 <div id="comparison-of-reconstructions" class="section level3">
 <h3>Comparison of reconstructions</h3>
 <p><img align="bottom" src="figures/recos1_smaller.png" width="1200">
@@ -354,44 +354,37 @@ where <span class="math inline">\(V_{\text{tot}}\)</span> is the total potential
 <div id="effect-of-adding-energy" class="section level3">
 <h3>Effect of adding energy</h3>
 <p><img src="figures/energy.png" width="1400">
-<small>Tuning <span class="math inline">\(\alpha\)</span> amounts to moving from data-optimal to energy-optimal configurations. From the plots of potential energy and data discrepancy, an optimal value of <span class="math inline">\(\alpha\)</span> (indicated by the grey line) is selected. Increasing <span class="math inline">\(\alpha\)</span> beyond this optimal value leads to a large increase in the data discrepancy due to addition of more atoms.</small></p>
+<small>Tuning <span class="math inline">\(\alpha\)</span> amounts to moving from data-optimal to energy-optimal configurations. Increasing <span class="math inline">\(\alpha\)</span> beyond an optimal value (grey line in plot) leads to a large increase in the data discrepancy due to addition of more atoms.</small></p>
 </div>
 </div>
 <div id="learned-post-processing" class="section level1">
 <h1>Learned Post-processing</h1>
-<table>
-<thead>
-<tr class="header">
-<th align="center">10 angles</th>
-<th align="center">8 angles</th>
-<th align="center">5 angles</th>
-<th align="center">2 angles</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center"><img src="figures/10_angles.png" width="320"></td>
-<td align="center"><img src="figures/8_angles.png" width="320"></td>
-<td align="center"><img src="figures/5_angles.png" width="320"></td>
-<td align="center"><img src="figures/2_angles.png" width="320"></td>
-</tr>
-</tbody>
-</table>
+<p><img align="left" src="figures/animation_deeploco.gif" width="500"></p>
+<p>We trained a deep neural network <span class="citation">(Boyd et al. 2018)</span> to identify atom locations from blurred SIRT reconstructions.<br />
+This approach although more scalable than ADCG did not perform well for cases where data from only very few angles were available. SIRT reconstructions with identified atoms (red crosses) are shown on the left.</p>
 </div>
 <div id="outlook" class="section level1">
 <h1>Outlook</h1>
 <ul>
 <li><p>Incorporate appropriate features of global optimisation into ADCG</p></li>
 <li><p>Use more realistic potential energy models</p></li>
-<li><p>Explore deep learning based iterative schemes to scale up to real electron tomography data</p></li>
+<li><p>Explore deep learning based iterative schemes</p></li>
 </ul>
-</div>
-<div id="references" class="section level1">
-<h1>References</h1>
 </div>
 <div id="acknowledgements" class="section level1">
 <h1>Acknowledgements</h1>
-<p>This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement no. 765604.</p>
+<p><small>This project received funding from the EU’s Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement no. 765604.</small></p>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-boyd2018deeploco">
+<p>Boyd, Nicholas, Eric Jonas, Hazen Babcock, and Benjamin Recht. 2018. “Deeploco: Fast 3D Localization Microscopy Using Neural Networks.” <em>BioRxiv</em>, 267096.</p>
+</div>
+<div id="ref-boyd2017alternating">
+<p>Boyd, Nicholas, Geoffrey Schiebinger, and Benjamin Recht. 2017. “The Alternating Descent Conditional Gradient Method for Sparse Inverse Problems.” <em>SIAM Journal on Optimization</em> 27 (2): 616–39.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
